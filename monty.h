@@ -33,5 +33,14 @@ typedef struct instruction_s
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <string.h>
+#include <fcntl.h>
+
+#define DELIM " \t\n"
+void *read_file_lines(char *file_name);
+FILE *open_file(char *file);
+char **tokenise_line(char *line);
+void free_line(char **lines);
+void process_line(char *line);
 
 #endif
