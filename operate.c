@@ -1,5 +1,12 @@
 #include "monty.h"
-
+/**
+ * operate - executes the opcode in the line from 
+ * the file read
+ * @opcode: the operation code to execute
+ * @head: pointer to the head of the stack
+ * @line_number: the line at execution
+ * Return: void
+ */
 void operate(char *opcode, stack_t **head, unsigned int line_number)
 {
 	int idx = 0;
@@ -10,10 +17,10 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 		{"push", push_st},
 		{"pop", pop_st},
 		{"pall", print_st},
-		/**{"pint", take_first},
+		{"pint", take_first},
 		{"add", add_st},
 		{"swap", swap_st},
-		{"nop", NULL},*/
+		{"nop", NULL},
 		{NULL, NULL}
 	
 	};
@@ -27,5 +34,8 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 		global_msg.error = EXIT_FAILURE;
 		return;
 	}
+	if (inst[idx].f == NULL)
+		return;
+
 	inst[idx].f(head, line_number);
 }

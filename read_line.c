@@ -1,5 +1,11 @@
 #include "monty.h"
-
+/**
+ * process_line - process the lines from getline
+ * @line: the line to be processed
+ * @head: the head of the linked lists
+ * @line_number: the line number of line processed
+ * Return: void
+ */
 void process_line(char *line, stack_t **head, unsigned int line_number)
 {
 	char *opcode = NULL;
@@ -56,7 +62,11 @@ void read_file_lines(char *file_name)
 	fclose(file_des);
 }
 
-
+/**
+ * open_file - attempt to open a file for reading
+ * @file: filepath to be opened
+ * Return: file descriptor
+ */
 FILE *open_file(char *file)
 {
 	FILE *fd = fopen(file, "r");

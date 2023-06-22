@@ -1,6 +1,10 @@
 #include "monty.h"
 
-
+/**
+ * tokenise_line - get individual words in aline
+ * @line: the line to examine
+ * Return: an array of strings
+ */
 char **tokenise_line(char *line)
 {
 	char **tokens = NULL;
