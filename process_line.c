@@ -6,19 +6,17 @@ char **tokenise_line(char *line)
 	char **tokens = NULL;
 	char *token = NULL;
 	int idx = 0, len;
-	char *copy = NULL;
 
 	tokens = malloc(sizeof(char *) * 3);
+
 	if (tokens == NULL)
 	{
-		len = strlen("Error: malloc failed\n");
-		write(STDERR_FILENO, "Error: malloc failed\n", len);
+		fprintf(stderr, "Error: malloc failed\n");
 		free(line);
 		exit(EXIT_FAILURE);
 	}
 
-	copy = strdup(line);
-	token = strtok(copy, DELIM);
+	token = strtok(line, DELIM);
 	while (token != NULL && idx < 2)
 	{
 		tokens[idx] = token;
@@ -26,14 +24,9 @@ char **tokenise_line(char *line)
 		idx++;
 	}
 	tokens[idx] = NULL;
-	//free(copy);
 	return (tokens);
 }
 
-void operate(char *opcode)
-{
-
-}
 void free_line(char **lines)
 {
 	int i;

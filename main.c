@@ -5,14 +5,12 @@ int main(int argc, char **argv)
 {
 	int len;
 
-	if (argc < 2 || argc > 2)
+	if (argc != 2)
 	{
-		len = strlen("USAGE: monty file"); 
-		write(STDERR_FILENO, "USAGE: monty file", len);
-		write(STDERR_FILENO, "\n", 1);
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	
-	read_file_lines(argv[2]);
+	read_file_lines(argv[1]);
 	return (0);
 }

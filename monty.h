@@ -40,7 +40,7 @@ typedef struct instruction_s
 void *read_file_lines(char *file_name);
 FILE *open_file(char *file);
 char **tokenise_line(char *line);
-void free_line(char **lines);
-void process_line(char *line);
+void process_line(char *line, unsigned int line_number);
+void operate(char *opcode, int push_number, unsigned int line_number);
 
 #endif

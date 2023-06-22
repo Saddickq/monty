@@ -1,13 +1,15 @@
 #include "monty.h"
 
-void process_line(char *line)
+void process_line(char *line, unsigned int line_number)
 {
 	char *opcode = NULL;
-	char **tokens;
+	char **tokens = NULL;
 	int count = 0, push_number;
-	
+
 	tokens = tokenise_line(line);
 
+	if (tokens == NULL)
+		return;
 	while (tokens[count] != NULL)
 		count++;
 
@@ -30,7 +32,8 @@ void process_line(char *line)
 	{
 		push_number = atoi(tokens[1]);
 	}
-	free(tokens);
+	operate(opcode, push_number, line_number);
+	//free(tokens);
 }
 
 /**
@@ -40,7 +43,7 @@ void process_line(char *line)
 */
 void *read_file_lines(char *file_name)
 {
-	int line_number = 0;
+	int line_number = 1;
 	char *buffer = NULL;
 	size_t size = 0;
 	FILE *file_des = open_file(file_name);
@@ -48,7 +51,7 @@ void *read_file_lines(char *file_name)
     
 	while (getline(&buffer, &size, file_des) != -1)
 	{
-		process_line(buffer);
+		process_line(buffer, line_number);
 		line_number++;
 	}
 	free(buffer);
@@ -60,12 +63,10 @@ FILE *open_file(char *file)
 {
 	FILE *fd = fopen(file, "r");
 
-	int len = strlen("Error: Can't open file ");
 	if (fd == NULL)
 	{
-		write(STDERR_FILENO, "Error: Can't open file ", len);
-		write(STDERR_FILENO, file, strlen(file));
-		write(STDERR_FILENO, "\n", 1);
+		fprintf(stderr, "Error: Can't open file ");
+		fprintf(stderr, "%s\n", file);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
