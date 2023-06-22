@@ -1,8 +1,9 @@
 #include "monty.h"
 
-void operate(char *opcode, int push_number, unsigned int line_number)
+void operate(char *opcode, stack_t **head, unsigned int line_number)
 {
 	int idx = 0;
+
 	instruction_t command;
 
 	instruction_t inst[] = {
@@ -15,7 +16,7 @@ void operate(char *opcode, int push_number, unsigned int line_number)
 		{"nop", NULL},
 		{NULL, NULL}
 	
-	}
+	};
 	while (inst[idx].opcode != NULL && (strcmp(inst[idx].opcode, opcode)) != 0)
 		idx++;
 
@@ -23,6 +24,8 @@ void operate(char *opcode, int push_number, unsigned int line_number)
 	if (command.opcode == NULL)
 	{
 		fprintf(stderr,"L%d: unknown instruction %s\n", line_number, opcode);
-		exit(EXIT_FAILURE);
+		global_msg.error = EXIT_FAILURE;
+		return;
 	}
+	inst[idx].f(head, line_number);
 }

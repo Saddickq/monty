@@ -36,11 +36,27 @@ typedef struct instruction_s
 #include <string.h>
 #include <fcntl.h>
 
-#define DELIM " \t\n"
-void *read_file_lines(char *file_name);
+typedef struct insert_s
+{
+	int push_number;
+	int error;
+} insert_t;
+
+extern insert_t global_msg;
+
+#define _POSIX_C_SOURCE 200809L
+#define DELIM " \t\n\r"
+void read_file_lines(char *file_name);
 FILE *open_file(char *file);
 char **tokenise_line(char *line);
-void process_line(char *line, unsigned int line_number);
-void operate(char *opcode, int push_number, unsigned int line_number);
-
+void process_line(char *line, stack_t **head, unsigned int line_number);
+void operate(char *opcode, stack_t **head, unsigned int line_number);
+void print_st(stack_t **head, unsigned int line_number);
+void pop_st(stack_t **head, unsigned int line_number);
+void push_st(stack_t **head, unsigned int line_number);
+void take_first(stack_t **head, unsigned int line_number);
+void add_st(stack_t **head, unsigned int line_number);
+void swap_st(stack_t **head, unsigned int line_number);
+void free_stack(stack_t *head);
+	
 #endif
