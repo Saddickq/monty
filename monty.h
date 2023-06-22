@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+#define _POSIX_C_SOURCE 200809L
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -44,7 +45,6 @@ typedef struct insert_s
 
 extern insert_t global_msg;
 
-#define _POSIX_C_SOURCE 200809L
 #define DELIM " \t\n\r"
 void read_file_lines(char *file_name);
 FILE *open_file(char *file);
@@ -54,9 +54,9 @@ void operate(char *opcode, stack_t **head, unsigned int line_number);
 void print_st(stack_t **head, unsigned int line_number);
 void pop_st(stack_t **head, unsigned int line_number);
 void push_st(stack_t **head, unsigned int line_number);
-void take_first(stack_t **head, unsigned int line_number);
+/**void take_first(stack_t **head, unsigned int line_number);
 void add_st(stack_t **head, unsigned int line_number);
-void swap_st(stack_t **head, unsigned int line_number);
+void swap_st(stack_t **head, unsigned int line_number);*/
 void free_stack(stack_t *head);
 	
 #endif

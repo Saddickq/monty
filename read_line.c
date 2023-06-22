@@ -36,16 +36,19 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 void read_file_lines(char *file_name)
 {
 	stack_t *head = NULL;
-	int line_number = 1;
+	int line_number = 0;
 	char *buffer = NULL;
+	ssize_t line = 0;
 	size_t size = 0;
 	FILE *file_des = open_file(file_name);
-    
-	while (getline(&buffer, &size, file_des) != -1)
+	
+	line = getline(&buffer, &size, file_des);
+	while (line != -1)
 	{
 		if (global_msg.error == 1)
 			break;
 		process_line(buffer, &head, line_number);
+		line = getline(&buffer, &size, file_des);
 		line_number++;
 	}
 	free_stack(head);

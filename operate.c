@@ -10,10 +10,10 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 		{"push", push_st},
 		{"pop", pop_st},
 		{"pall", print_st},
-		{"pint", take_first},
+		/**{"pint", take_first},
 		{"add", add_st},
 		{"swap", swap_st},
-		{"nop", NULL},
+		{"nop", NULL},*/
 		{NULL, NULL}
 	
 	};
