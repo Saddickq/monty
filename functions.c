@@ -42,7 +42,11 @@ void pop_st(stack_t **head, unsigned int line_number)
 	(void) line_number;
 
 	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		global_msg.error = EXIT_FAILURE;
 		return;
+	}
 
 	current = *head;
 
