@@ -15,6 +15,7 @@ void push_st(stack_t **head, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		global_msg.error = EXIT_FAILURE;
 		return;
 	}
 

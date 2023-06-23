@@ -26,8 +26,14 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 	}
 
 	opcode = tokens[0];
-	if (count == 2)
+	if (strcmp(opcode, "push") == 0)
 	{
+		if (tokens[1] == NULL)
+                {
+                        fprintf(stderr, "L%d: usage: push integer\n", line_number);
+                        global_msg.error = EXIT_FAILURE;
+                        return;
+                }
 		global_msg.push_number = atoi(tokens[1]);
 	}
 	operate(opcode, head, line_number);
@@ -42,7 +48,7 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 void read_file_lines(char *file_name)
 {
 	stack_t *head = NULL;
-	int line_number = 0;
+	int line_number = 1;
 	char *buffer = NULL;
 	ssize_t line = 0;
 	size_t size = 0;
