@@ -1,8 +1,6 @@
-pop
-push 0
+push 1
 push 2
-push 4
-push 9
-pint
-push joy
+push 10
+push 5
+mod
 pall

@@ -14,16 +14,12 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 	instruction_t command;
 
 	instruction_t inst[] = {
-		{"push", push_st},
-		{"pop", pop_st},
-		{"pall", print_st},
-		{"pint", take_first},
-		{"add", add_st},
-		{"sub", sub_st},
-		{"div", div_st},
-		{"swap", swap_st},
-		{"nop", NULL},
-		{NULL, NULL}
+		{"push", push_st}, {"pop", pop_st},
+		{"pall", print_st}, {"pint", take_first},
+		{"add", add_st}, {"sub", sub_st},
+		{"div", div_st}, {"swap", swap_st},
+		{"nop", NULL}, {"mul", mul_st},
+		{"mod", mod_st}, {NULL, NULL}
 	};
 	while (inst[idx].opcode != NULL && (strcmp(inst[idx].opcode, opcode)) != 0)
 		idx++;
