@@ -1,7 +1,14 @@
 #include "monty.h"
 
-insert_t global_msg = {0, 0};
+void read_file_lines(char *file_name);
 
+insert_t global_msg = {0, 0};
+/**
+ * main - start of program
+ * @argv: argument vector
+ * @argc: argument count
+ * Return: global_msg.error
+ */
 int main(int argc, char **argv)
 {
 	if (argc != 2)

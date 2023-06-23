@@ -50,7 +50,6 @@ typedef struct insert_s
 extern insert_t global_msg;
 
 #define DELIM " \t\n\r"
-void read_file_lines(char *file_name);
 FILE *open_file(char *file);
 char **tokenise_line(char *line);
 void process_line(char *line, stack_t **head, unsigned int line_number);
