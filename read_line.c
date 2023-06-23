@@ -18,7 +18,6 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 		return;
 	while (tokens[count] != NULL)
 		count++;
-	
 	if (count == 0)
 	{
 		free(tokens);

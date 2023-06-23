@@ -58,7 +58,14 @@ void mod_st(stack_t **head, unsigned int line_number)
 	(*head)->next->n = modu;
 	pop_st(head, line_number);
 }
-
+/**
+ * pchar_st - prints the ascii value of the topmost
+ * elements inthe stack
+ *
+ * @head: the pointer to the head node
+ * @line_number: the line of execution
+ * Return: void
+ */
 void pchar_st(stack_t **head, unsigned int line_number)
 {
 	int number = 0;
