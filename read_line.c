@@ -29,11 +29,11 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 	if (strcmp(opcode, "push") == 0)
 	{
 		if (tokens[1] == NULL)
-                {
-                        fprintf(stderr, "L%d: usage: push integer\n", line_number);
-                        global_msg.error = EXIT_FAILURE;
-                        return;
-                }
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number);
+			global_msg.error = EXIT_FAILURE;
+			return;
+		}
 		global_msg.push_number = atoi(tokens[1]);
 	}
 	operate(opcode, head, line_number);
