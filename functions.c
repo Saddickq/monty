@@ -84,22 +84,21 @@ void print_st(stack_t **head, unsigned int line_number)
  * @line_number: the line of execution
  * Return: void
  */
- void take_first(stack_t **head, unsigned int line_number)
- {
+void take_first(stack_t **head, unsigned int line_number)
+{
+	if (*head == NULL)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		global_msg.error = EXIT_FAILURE;
+		return;
+	}
 
-	 if (*head == NULL)
-	 {
-		 fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		 global_msg.error = EXIT_FAILURE;
-		 return;
-	 }
-
-	 while ((*head)->prev != NULL)
-	 {
-		 *head = (*head)->prev;
-	 }
-	 printf("%d\n", (*head)->n);
- }
+	while ((*head)->prev != NULL)
+	{
+		*head = (*head)->prev;
+	}
+	printf("%d\n", (*head)->n);
+}
 
 /**
  * swap_st - swap the values of the two topmost elements

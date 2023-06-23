@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * operate - executes the opcode in the line from 
+ * operate - executes the opcode in the line from
  * the file read
  * @opcode: the operation code to execute
  * @head: pointer to the head of the stack
@@ -22,7 +22,6 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 		{"swap", swap_st},
 		{"nop", NULL},
 		{NULL, NULL}
-	
 	};
 	while (inst[idx].opcode != NULL && (strcmp(inst[idx].opcode, opcode)) != 0)
 		idx++;
@@ -30,7 +29,7 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 	command = inst[idx];
 	if (command.opcode == NULL)
 	{
-		fprintf(stderr,"L%d: unknown instruction %s\n", line_number, opcode);
+		fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode);
 		global_msg.error = EXIT_FAILURE;
 		return;
 	}

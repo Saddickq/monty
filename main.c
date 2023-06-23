@@ -1,6 +1,6 @@
 #include "monty.h"
 
- insert_t global_msg = {0, 0};
+insert_t global_msg = {0, 0};
 
 int main(int argc, char **argv)
 {
@@ -10,6 +10,6 @@ int main(int argc, char **argv)
 		exit(EXIT_FAILURE);
 	}
 	read_file_lines(argv[1]);
-	
+
 	return (global_msg.error);
 }

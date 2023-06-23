@@ -36,7 +36,11 @@ typedef struct instruction_s
 #include <unistd.h>
 #include <string.h>
 #include <fcntl.h>
-
+/**
+ * struct insert_s - info about exits and value for push
+ * @push_number: the value for push opcode
+ * @error: the exit value of the program
+ */
 typedef struct insert_s
 {
 	int push_number;
@@ -58,5 +62,4 @@ void take_first(stack_t **head, unsigned int line_number);
 void add_st(stack_t **head, unsigned int line_number);
 void swap_st(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
-	
 #endif

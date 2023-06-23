@@ -35,7 +35,7 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 }
 
 /**
- * read_file_lines - reads the lines from a file 
+ * read_file_lines - reads the lines from a file
  * @file_name: The file to be read
  * Return: void
 */
@@ -46,8 +46,9 @@ void read_file_lines(char *file_name)
 	char *buffer = NULL;
 	ssize_t line = 0;
 	size_t size = 0;
+
 	FILE *file_des = open_file(file_name);
-	
+
 	line = getline(&buffer, &size, file_des);
 	while (line != -1)
 	{
