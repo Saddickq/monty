@@ -61,4 +61,6 @@ void take_first(stack_t **head, unsigned int line_number);
 void add_st(stack_t **head, unsigned int line_number);
 void swap_st(stack_t **head, unsigned int line_number);
 void free_stack(stack_t *head);
+void sub_st(stack_t **head, unsigned int line_number);
+void div_st(stack_t **head, unsigned int line_number);
 #endif

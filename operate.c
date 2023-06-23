@@ -19,6 +19,8 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 		{"pall", print_st},
 		{"pint", take_first},
 		{"add", add_st},
+		{"sub", sub_st},
+		{"div", div_st},
 		{"swap", swap_st},
 		{"nop", NULL},
 		{NULL, NULL}
