@@ -19,7 +19,8 @@ void operate(char *opcode, stack_t **head, unsigned int line_number)
 		{"add", add_st}, {"sub", sub_st},
 		{"div", div_st}, {"swap", swap_st},
 		{"nop", NULL}, {"mul", mul_st},
-		{"mod", mod_st}, {NULL, NULL}
+		{"mod", mod_st}, {"pchar", pchar_st},
+        {NULL, NULL}
 	};
 	while (inst[idx].opcode != NULL && (strcmp(inst[idx].opcode, opcode)) != 0)
 		idx++;
