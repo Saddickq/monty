@@ -133,7 +133,7 @@ void pstr_st(stack_t **head, unsigned int line_number)
 int _isdigit(char *str)
 {
 	int i = 0;
-	
+
 	if (str[i] == '-')
 		i = 1;
 
