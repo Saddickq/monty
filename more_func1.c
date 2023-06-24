@@ -92,3 +92,35 @@ void pchar_st(stack_t **head, unsigned int line_number)
 	ascii = number;
 	printf("%c\n", ascii);
 }
+/**
+ * pstr_st - prints the ascii value of the data in the 
+ * elements of the stack
+ *
+ * @head: the pointer to the head node
+ * @line_number: the line of execution
+ * Return: void
+ */
+void pstr_st(stack_t **head, unsigned int line_number)
+{
+	char ascii_value;
+	stack_t *temp = NULL;
+
+	(void) line_number;
+
+	if (*head == NULL)
+	{
+		printf("\n");
+		return;
+	}
+	temp = *head;
+
+	while (temp != NULL)
+	{
+		if (temp->n < 65 || temp->n > 122)
+			break;
+
+		ascii_value = temp->n;
+		printf("%c", ascii_value);
+		temp = temp->next;
+	}
+}
