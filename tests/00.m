@@ -1,9 +1,7 @@
-push 0
-push 1
-push 2
-  push 3
-                   pall    
-uush 4
-    push 5    
-      push    6        
+push 100
+push 89
+push 122
+pchar
+push -1024
 pall
+push 123a

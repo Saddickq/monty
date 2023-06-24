@@ -8,6 +8,7 @@
  */
 void process_line(char *line, stack_t **head, unsigned int line_number)
 {
+	int digit;
 	char *opcode = NULL;
 	char **tokens = NULL;
 	int count = 0;
@@ -31,7 +32,8 @@ void process_line(char *line, stack_t **head, unsigned int line_number)
 	opcode = tokens[0];
 	if (strcmp(opcode, "push") == 0)
 	{
-		if (tokens[1] == NULL)
+		digit = _isdigit(tokens[1]);
+		if (tokens[1] == NULL || digit == 1)
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number);
 			global_msg.error = EXIT_FAILURE;

@@ -125,3 +125,25 @@ void pstr_st(stack_t **head, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+ * _isdigit - checks if a string is a number
+ * @str: the string to check
+ * Return: 1 if true else 0
+*/
+int _isdigit(char *str)
+{
+	int i = 0;
+	
+	if (str[i] == '-')
+		i = 1;
+
+	while (str[i] != '\0')
+	{
+		if (!isdigit(str[i]))
+		{
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}

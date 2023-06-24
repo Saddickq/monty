@@ -36,6 +36,8 @@ typedef struct instruction_s
 #include <unistd.h>
 #include <string.h>
 #include <fcntl.h>
+#include <ctype.h>
+
 /**
  * struct insert_s - info about exits and value for push
  * @push_number: the value for push opcode
@@ -50,6 +52,8 @@ typedef struct insert_s
 extern insert_t global_msg;
 
 #define DELIM " \t\n\r"
+
+int _isdigit(char *str);
 FILE *open_file(char *file);
 char **tokenise_line(char *line);
 void process_line(char *line, stack_t **head, unsigned int line_number);
